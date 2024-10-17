@@ -1,12 +1,10 @@
-import "../App.css";
 import DefaultLayouts from "../components/Layouts/DefaultLayouts";
-
 
 function LandingPage() {
 
   return (
     <DefaultLayouts>
-      <h1>LandingPage</h1>
+      <h1>Landing Page</h1>
     </DefaultLayouts>
   );
 }

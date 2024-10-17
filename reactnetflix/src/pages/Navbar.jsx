@@ -1,17 +1,22 @@
 import { useAtom } from "jotai"
-import { languageAtom } from "../jotai/atoms"
+import OptionLanguange from "../components/modules/OptionLanguange"
+import DefaultButton from "../components/modules/DefaultButton"
+import { useNavigate } from "react-router-dom"
 
 function Navbar() {
-    const [, setLanguage] = useAtom(languageAtom)
-
+    const navigate = useNavigate()
     return (
-        <div className="navbar">
-            <h3>Netflix Clone</h3>
-            <div>
-                <button className="btn btn-active btn-accent mr-4" onClick={() => setLanguage("id")}>Indonesia</button>
-                <button className="active:bg-red-500 hover:bg-yellow-500 " onClick={() => setLanguage("en")}>English</button>
-            </div>
-        </div>
+        <header>
+            <nav className="flex justify-between items-center pr-10 pl-7 py-4">
+                <div>
+                    <img src="../../public/netflix-logo.png" alt="netlfix-logo" width={105} height={45} />
+                </div>
+                <div className="flex items-center gap-4">
+                    <OptionLanguange />
+                    <DefaultButton onClick={() => { navigate("/login") }}>Sign In</DefaultButton>
+                </div>
+            </nav>
+        </header>
     )
 }
 
