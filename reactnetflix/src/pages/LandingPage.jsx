@@ -1,10 +1,11 @@
 import DefaultLayouts from "../components/Layouts/DefaultLayouts";
+import Jumbroton from "../components/modules/Jumbroton";
 
 function LandingPage() {
 
   return (
     <DefaultLayouts>
-      <h1>Landing Page</h1>
+      <Jumbroton />
     </DefaultLayouts>
   );
 }

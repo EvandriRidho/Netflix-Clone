@@ -7,10 +7,11 @@ const OptionLanguange = () => {
 
     const handleSelect = (e) => {
         setLanguange(e.target.value)
+
     }
     return (
         <div className="relative bg-[1A1510] text-white rounded border border-gray-400 w-[200px] pl-8">
-            <div className="absolute top-[9px] left-2">
+            <div className="absolute top-[9px] left-2 ">
                 <svg
                     width="16"
                     height="16"
