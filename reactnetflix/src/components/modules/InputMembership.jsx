@@ -4,12 +4,11 @@ import { languageAtom } from '../../jotai/atoms'
 import { useAtom } from 'jotai'
 import { LIST_CTA_EN, LIST_CTA_ID } from "../../Constants/ListCTA"
 import DefaultButton from './DefaultButton'
-import { useNavigate } from 'react-router-dom'
+
 
 
 const InputMembership = () => {
     const [language] = useAtom(languageAtom)
-    const navigate = useNavigate()
     return (
         <form>
             <EachUtils
