@@ -4,7 +4,7 @@ const FAQ_TITLE_EN = "Frequently Asked Questions"
 const LIST_FAQ_ID = [
     {
         title: "Apa itu Netflix?",
-        desc: "Netflix adalah layanan streaming yang menawarkan berbagai acara TV pemenang penghargaan, film, anime, dokumenter, dan banyak lagi di ribuan perangkat yang terhubung ke Internet. Kamu bisa menonton sepuasnya, kapan pun kamu mau, tanpa satu iklan pun  semuanya dengan satu harga bulanan yang murah. Selalu ada tontonan baru dan acara TV serta film baru yang ditambahkan setiap minggu!",
+        desc: "Netflix adalah layanan streaming yang menawarkan berbagai acara TV pemenang penghargaan, film, anime, dokumenter, dan banyak lagi di ribuan perangkat yang terhubung ke Internet. \nKamu bisa menonton sepuasnya, kapan pun kamu mau, tanpa satu iklan pun  semuanya dengan satu harga bulanan yang murah. Selalu ada tontonan baru dan acara TV serta film baru yang ditambahkan setiap minggu!",
         isOpen: false
     },
     {

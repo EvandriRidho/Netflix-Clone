@@ -15,8 +15,8 @@ const SectionEnjoy = () => {
                 of={language === "English" ? LIST_CONTENT_1_EN : LIST_CONTENT_1_ID}
                 render={(item, index) => (
                     <div key={index} className='px-4'>
-                        <h2 className='font-black text-5xl '>{item.title}</h2>
-                        <p className='text-2xl mt-4'>{item.desc}</p>
+                        <h2 className='font-black text-3xl sm:text-5xl '>{item.title}</h2>
+                        <p className='text-lg sm:text-xl mt-4'>{item.desc}</p>
                     </div>
                 )}
             />

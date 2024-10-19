@@ -12,14 +12,14 @@ const SectionFAQ = () => {
     return (
         <div className="w-full p-16 bg-black ">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-5xl mb-8 font-black text-white text-center">{language === "English" ? FAQ_TITLE_EN : FAQ_TITLE_ID}</h2>
+                <h2 className="text-3xl sm:text-5xl mb-8 font-black text-white text-center">{language === "English" ? FAQ_TITLE_EN : FAQ_TITLE_ID}</h2>
                 <ul className="flex flex-col gap-2 py-8">
                     <EachUtils
                         of={language === "English" ? LIST_FAQ_EN : LIST_FAQ_ID}
                         render={(item, index) => (
                             <li key={index}>
                                 <div className="bg-[#2d2d2d] hover:bg-[414141] text-white">
-                                    <button className="flex p-8 justify-between items-center w-full"
+                                    <button className="flex p-4 sm:p-8 justify-between items-center w-full"
                                         onClick={() => setContentIndex(openContentIndex === index ? null : index)}
                                     >
                                         <span className="font-semibold text-md sm:text-xl text-left">{item.title}</span>
@@ -52,7 +52,7 @@ const SectionFAQ = () => {
                                     animate={{ translateY: openContentIndex === index ? 0 : -10 }}
                                     style={{ display: openContentIndex === index ? "block" : "none" }}
                                 >
-                                    <p className="text-xl">{item.desc}</p>
+                                    <p className="text-md sm:text-lg">{item.desc}</p>
                                 </motion.div>
                             </li>
                         )}
