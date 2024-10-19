@@ -2,9 +2,10 @@ import DefaultLayouts from "../components/Layouts/DefaultLayouts";
 import Jumbroton from "../components/modules/Jumbroton";
 import SectionDownload from "../components/modules/SectionDownload";
 import SectionEnjoy from "../components/modules/SectionEnjoy";
-import { SectionProfile } from "../components/modules/SectionProfile";
+import SectionProfile from "../components/modules/SectionProfile";
 import SectionWatch from "../components/modules/SectionWatch";
-
+import SectionFAQ from "../components/modules/SectionFAQ";
+import Footer from "../components/modules/Footer";
 function LandingPage() {
 
   return (
@@ -14,6 +15,8 @@ function LandingPage() {
       <SectionDownload />
       <SectionWatch />
       <SectionProfile />
+      <SectionFAQ />
+      <Footer />
     </DefaultLayouts>
   );
 }

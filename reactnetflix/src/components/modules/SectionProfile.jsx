@@ -5,7 +5,8 @@ import { LIST_CONTENT_4_EN, LIST_CONTENT_4_ID } from "../../Constants/ListConten
 import EachUtils from '../../utils/EachUtils'
 import { useAtom } from 'jotai'
 import { languageAtom } from '../../jotai/atoms'
-export const SectionProfile = () => {
+
+const SectionProfile = () => {
     const [language] = useAtom(languageAtom)
     return (
         <SectionLayouts>
@@ -24,3 +25,5 @@ export const SectionProfile = () => {
         </SectionLayouts>
     )
 }
+
+export default SectionProfile
