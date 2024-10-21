@@ -1,0 +1,11 @@
+// Untuk Dev Ex agar mudah dibaca saat import
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@mods/*": ["./src/components/modules/*"],
+      "@layouts/*": ["./src/components/Layouts/*"]
+    }
+  }
+}

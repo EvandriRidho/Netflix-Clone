@@ -1,8 +1,12 @@
+import BrowseLayouts from "@layouts/BrowseLayouts"
+import Jumbotron from "@mods/BrowsePage/Jumbotron"
+
+
 function Browse() {
     return (
-        <div>
-            <h3>BROWSE MOVIES</h3>
-        </div>
+        <BrowseLayouts>
+            <Jumbotron />
+        </BrowseLayouts>
     )
 }
 

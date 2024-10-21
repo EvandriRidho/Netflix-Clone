@@ -1,13 +1,12 @@
-import DefaultLayouts from "../components/Layouts/DefaultLayouts";
-import Jumbroton from "../components/modules/Jumbroton";
-import SectionDownload from "../components/modules/SectionDownload";
-import SectionEnjoy from "../components/modules/SectionEnjoy";
-import SectionProfile from "../components/modules/SectionProfile";
-import SectionWatch from "../components/modules/SectionWatch";
-import SectionFAQ from "../components/modules/SectionFAQ";
-import Footer from "../components/modules/Footer";
+import DefaultLayouts from "@layouts/DefaultLayouts";
+import Jumbroton from "@mods/Jumbroton";
+import SectionEnjoy from "@mods/SectionEnjoy";
+import SectionDownload from "@mods/SectionDownload";
+import SectionWatch from "@mods/SectionWatch";
+import SectionProfile from "@mods/SectionProfile";
+import SectionFAQ from "@mods/SectionFAQ";
+import Footer from "@mods/Footer";
 function LandingPage() {
-
   return (
     <DefaultLayouts>
       <Jumbroton />
