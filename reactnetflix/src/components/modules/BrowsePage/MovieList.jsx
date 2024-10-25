@@ -1,18 +1,36 @@
-import { useState } from "react"
-import { LIST_VIDEOS } from "../../../Constants/DummyVideo"
+import { useEffect, useState } from "react"
 import EachUtils from "../../../utils/EachUtils"
 import MovieCard from "./MovieCard"
 import CarouselLayouts from "../../Layouts/CarouselLayouts"
-
-const MovieList = ({ title }) => {
+import { useAtom } from 'jotai'
+import { idMoviesAtom } from "@/jotai/atoms"
+import { getMoviesByType } from "@/utils/getMoviesByType"
+import { isFetchingAtom } from "@/jotai/atoms"
+const MovieList = ({ title, moviesType }) => {
     const [isHover, setIsHover] = useState(false)
-    const [idMovies, setIdMovies] = useState(null)
+    const [, setIdMovies] = useAtom(idMoviesAtom)
+    const [moviesList, setMoviesList] = useState([])
+    const [, setIsFetching] = useAtom(isFetchingAtom)
+
+    useEffect(() => {
+        if (moviesType) {
+            getMoviesByType({ moviesType }).then((result) => {
+                setIsFetching(true)
+                setMoviesList(result)
+            }).finally(() => {
+                setTimeout(() => {
+                    setIsFetching(false)
+                }, 500)
+            })
+        }
+    }, [])
+
     return (
         <section className="px-8 py-4">
             <h3 className="text-white text-3xl font-semibold mb-2">{title}</h3>
             <CarouselLayouts>
                 <EachUtils
-                    of={LIST_VIDEOS}
+                    of={moviesList}
                     render={(item, index) => (
                         <div
                             key={index}
@@ -22,7 +40,7 @@ const MovieList = ({ title }) => {
                             }}
                             className="carousel-item h-72 w-1/4 mt-4"
                         >
-                            <MovieCard data={item} isHover={isHover} idMovies={idMovies} setIdMovies={setIdMovies} setIsHover={setIsHover} />
+                            <MovieCard data={item} isHover={isHover} setIsHover={setIsHover} />
                         </div>
                     )}
                 />

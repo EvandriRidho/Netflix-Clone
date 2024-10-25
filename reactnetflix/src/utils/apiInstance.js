@@ -1,8 +1,9 @@
 import axios from "axios"
 
 export const apiInstance = axios.create({
-    baseURL: "http://localhost:3002",
+    baseURL: import.meta.env.VITE_BASE_URL_TMDB,
     headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${import.meta.env.VITE_TOKEN_TMDB}`
     }
 })
