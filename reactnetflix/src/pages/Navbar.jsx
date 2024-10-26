@@ -1,10 +1,9 @@
 import OptionLanguange from "../components/modules/OptionLanguange"
 import DefaultButton from "../components/modules/DefaultButton"
-import { useNavigate } from "react-router-dom"
 import { languageAtom } from "../jotai/atoms"
 import { useAtom } from "jotai"
 function Navbar() {
-    const navigate = useNavigate()
+
     const [language] = useAtom(languageAtom)
     return (
         <header className="relative z-20 max-w-7xl mx-auto">
@@ -14,7 +13,7 @@ function Navbar() {
                 </div>
                 <div className="flex items-center gap-4">
                     <OptionLanguange />
-                    <DefaultButton text={language === "English" ? "Sign In" : "Masuk"} onClick={() => { navigate("/login") }} />
+                    <DefaultButton text={language === "English" ? "Sign In" : "Masuk"} />
                 </div>
             </nav>
         </header>
