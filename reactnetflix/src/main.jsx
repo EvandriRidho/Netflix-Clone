@@ -5,6 +5,9 @@ import './index.css'
 import LandingPage from './pages/LandingPage'
 import Browse from './pages/Browse'
 import Watch from './pages/Watch'
+import Register from './pages/Register'
+import Login from './pages/login'
+import FavoriteMovies from './pages/favoriteMovies'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +21,18 @@ const router = createBrowserRouter([
   {
     path: "/watch/:id",
     element: <Watch />
+  },
+  {
+    path: "/register",
+    element: <Register />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/favorite",
+    element: <FavoriteMovies />
   }
 ])
 

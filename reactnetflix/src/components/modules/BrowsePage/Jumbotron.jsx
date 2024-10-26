@@ -2,16 +2,16 @@ import ReactPlayer from "react-player";
 import { useEffect, useState } from "react";
 import { GoPlay, GoMute, GoUnmute } from "react-icons/go"; import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { idMoviesAtom } from "@/jotai/atoms";
 import { getMoviesByType } from "@/utils/getMoviesByType";
 import { getVideoUrl } from "@/utils/getVideoUrl";
-import { isOpenModalAtom } from "@/jotai/atoms";
+import { isOpenModalAtom, idMoviesAtom } from "@/jotai/atoms";
 
 
 const Jumbotron = () => {
     const navigate = useNavigate()
     const [, setIsOpenModal] = useAtom(isOpenModalAtom)
-    const [idMovie, setIdMovie] = useAtom(idMoviesAtom)
+    const [, setIdMovieAtom] = useAtom(idMoviesAtom)
+    const [idMovie, setIdMovie] = useState(null)
     const [isMuted, setIsMuted] = useState(true)
     const [topMovie, setTopMovie] = useState([])
     const [videoUrl, setVideoUrl] = useState(null)
@@ -53,7 +53,10 @@ const Jumbotron = () => {
                     </button>
                     <button className="bg-stone-600/80 py-2 px-8 rounded-md text-white
                     "
-                        onClick={() => setIsOpenModal(true)}
+                        onClick={() => {
+                            setIdMovieAtom(idMovie)
+                            setIsOpenModal(true)
+                        }}
                     >Detail Movie</button>
                 </div>
             </div>

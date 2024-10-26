@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import { getVideoUrl } from "@/utils/getVideoUrl"
 import Skeleton from "./Skeleton"
 import { useNavigate } from "react-router-dom"
+import { LIST_VIDEO_RECOMMENDATION } from "@/Constants/DummyVideo"
 
 const MovieCard = ({ data, isHover, setIsHover }) => {
     const navigate = useNavigate()
@@ -16,12 +17,6 @@ const MovieCard = ({ data, isHover, setIsHover }) => {
     const [, setIsOpenModal] = useAtom(isOpenModalAtom)
     const [isFetching] = useAtom(isFetchingAtom)
     const [videoUrl, setVideoUrl] = useState(null)
-
-    useEffect(() => {
-        if (idMovies && data) {
-            getVideoUrl({ movie_id: data.id }).then((result) => setVideoUrl(result))
-        }
-    }, [idMovies, data])
 
     if (isFetching) return <Skeleton />
 
@@ -74,8 +69,9 @@ const MovieCard = ({ data, isHover, setIsHover }) => {
                         onMouseEnter={() => {
                             setIsHover(true)
                             setIdMovies(data.id)
+                            getVideoUrl({ movie_id: data.id }).then((result) => setVideoUrl(result))
                         }}
-                        src={`${import.meta.env.VITE_BASE_URL_IMAGE_TMBD}${data.backdrop_path}`}
+                        src={!data.poster_path ? LIST_VIDEO_RECOMMENDATION[0].image : `${import.meta.env.VITE_BASE_URL_IMAGE_TMBD}${data.backdrop_path}`}
                         alt={data.title}
                         className="max-h-48 w-full cursor-pointer"
                     />
