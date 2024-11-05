@@ -2,19 +2,36 @@ import { GoChevronLeft } from "react-icons/go";
 import { JUMBOTRON_IMAGE } from "../Constants/ListAssets";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { emailAtom } from "../jotai/atoms";
+import { emailAtom, emailStorageAtom, tokenAtom } from "../jotai/atoms";
 import { useState } from "react";
+import { signInWithEmailAndPassword, getIdToken } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { toast, ToastContainer } from "react-toastify";
+import DefaultLayouts from "../components/Layouts/DefaultLayouts";
 
 const Login = () => {
     const navigate = useNavigate()
+    const [, setToken] = useAtom(tokenAtom)
+    const [, setEmailStorage] = useAtom(emailStorageAtom)
     const [email, setEmail] = useAtom(emailAtom)
     const [password, setPassword] = useState(null)
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault()
-        alert("Login Successfully")
+        try {
+            const login = await signInWithEmailAndPassword(auth, email, password)
+            if (login) {
+                const firebaseToken = await getIdToken(login.user)
+                setToken(firebaseToken)
+                setEmailStorage(login.user.email)
+                navigate("/browse")
+            }
+        } catch (error) {
+            toast(error.message)
+        }
     }
     return (
-        <>
+        <DefaultLayouts>
+            <ToastContainer position="top-center" theme="dark" autoClose={2000} />
             <img
                 src={JUMBOTRON_IMAGE}
                 alt="jumbroton-img"
@@ -37,10 +54,10 @@ const Login = () => {
                             type="email"
                             placeholder="Email"
                             className='w-full p-4 bg-black/50 rounded-md border border-white/50 peer placeholder-transparent ' />
-                        <lebel
+                        <label
                             className='absolute top-0 left-0 pl-4 peer-placeholder-shown:top-3.5 peer-focus:-top-[6px] transition-all text-lg -z-10'>
                             Email
-                        </lebel>
+                        </label>
                     </div>
                     <div className="relative">
                         <input
@@ -49,10 +66,10 @@ const Login = () => {
                             type="password"
                             placeholder="Password"
                             className='w-full p-4 bg-black/50 rounded-md border border-white/50 peer placeholder-transparent ' />
-                        <lebel
+                        <label
                             className='absolute top-0 left-0 pl-4 peer-placeholder-shown:top-3.5 peer-focus:-top-[6px] transition-all text-lg -z-10'>
                             Password
-                        </lebel>
+                        </label>
                     </div>
                     <div className="flex flex-col gap-4">
                         <button
@@ -70,7 +87,7 @@ const Login = () => {
                     </div>
                 </form>
             </div>
-        </>
+        </DefaultLayouts>
     )
 }
 

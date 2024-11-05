@@ -23,7 +23,7 @@ const InputMembership = () => {
                         <h3 className='text-white'>{item.title}</h3>
                         <div className='relative flex justify-center items-center gap-4 py-4'>
                             <input placeholder={item.inputLabel} className='w-full p-4 bg-black/50 rounded-md border border-white/50 peer placeholder-transparent ' type='email' onChange={(e) => setEmail(e.target.value)} />
-                            <lebel className='absolute top-0 left-0 pl-4 peer-placeholder-shown:top-8 peer-focus:top-[16px] transition-all'>{item.inputLabel}</lebel>
+                            <label className='absolute top-0 left-0 pl-4 peer-placeholder-shown:top-8 peer-focus:top-[16px] transition-all'>{item.inputLabel}</label>
                             <DefaultButton
                                 styles={"flex py-4 w-1/2 justify-center items-center gap-2 "}
                                 isArrowIcon={true}

@@ -6,9 +6,11 @@ import SectionWatch from "@mods/SectionWatch";
 import SectionProfile from "@mods/SectionProfile";
 import SectionFAQ from "@mods/SectionFAQ";
 import Footer from "@mods/Footer";
+import Navbar from "./Navbar";
 function LandingPage() {
   return (
-    <DefaultLayouts>
+    <>
+      <Navbar />
       <Jumbroton />
       <SectionEnjoy />
       <SectionDownload />
@@ -16,7 +18,7 @@ function LandingPage() {
       <SectionProfile />
       <SectionFAQ />
       <Footer />
-    </DefaultLayouts>
+    </>
   );
 }
 
